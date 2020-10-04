@@ -36,4 +36,39 @@ class StudentDBTest {
         assertEquals(expected, actual);
 
     }
+
+    @Test
+    void testAddStudent (){
+        StudentDB studentDB = new StudentDB(new Student[]{
+                new Student("John Doe", 1),
+                new Student("Jane Doe", 2),
+        });
+        studentDB.add(new Student("Jolly Doe", 3));
+        Student[] actual = studentDB.listStudents();
+
+        assertArrayEquals(new Student[]{
+                new Student("John Doe", 1),
+                new Student("Jane Doe", 2),
+                new Student("Jolly Doe", 3)
+        }, actual);
+
+    }
+
+    @Test
+    public void testRemoveStudent (){
+        StudentDB studentDB = new StudentDB(new Student[]{
+                new Student("John Doe", 1),
+                new Student("Jane Doe", 2),
+                new Student("Jolly Doe", 3)
+        });
+
+        studentDB.remove(2);
+        Student[] actual = studentDB.listStudents();
+
+        assertEquals(new Student[]{
+                new Student("John Doe", 1),
+                new Student("Jolly Doe", 3), actual});
+
+    }
+
 }
