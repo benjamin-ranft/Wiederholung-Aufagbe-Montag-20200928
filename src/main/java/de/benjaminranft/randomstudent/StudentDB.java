@@ -24,7 +24,7 @@ public class StudentDB {
 
     public Student randomStudent(){
         double random = Math.random();
-        int randomIndex = (int) (random = students.length);
+        int randomIndex = (int) (random * students.length);
         return students[randomIndex];
     }
 
