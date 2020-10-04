@@ -14,11 +14,18 @@ public class StudentDB {
 
     @Override
     public String toString() {
-        String result = "StudentDB(\n";
-        for (Student student : students);
-        result += student.toString();
+        String result = "StudentDB{\n";
+        for (Student student : students){
+        result += student.toString()+"\n";}
 
-        result += ")";
+        result += "}";
         return result;
     }
+
+    public Student randomStudent(){
+        double random = Math.random();
+        int randomIndex = (int) (random = students.length);
+        return students[randomIndex];
+    }
+
 }
